@@ -7,7 +7,6 @@ typedef struct node{                //nickmane of "struct node" = node.
 node *Build123();
 node *getnode(int x);
 void print(node *s);
-
 node *HP;               // head pointer
 /*Build123 creates a list 1->2->3  and returns adress of first node*/
 node* Build123(){
@@ -33,9 +32,30 @@ void print(node* s){            // adress of first node
         printf(" %d \t", s->data);
         s = s->next;
     }
+    printf("\n");
+}
+void delbegin(node* s){
+    if(HP==NULL){
+        printf("\nlist is already empty");
+        return;
+    }
+    if(HP->next==NULL){
+        HP = NULL;
+        free(s);
+        printf("\nLinked List is now empty.\n");
+        return;
+    }else{
+        HP = HP->next;
+        free(s);
+    }
 }
 int main(){
     HP = Build123();
+    print(HP);
+    delbegin(HP);
+    print(HP);
+    delbegin(HP);
+    delbegin(HP);
     print(HP);
     return 0;
 }

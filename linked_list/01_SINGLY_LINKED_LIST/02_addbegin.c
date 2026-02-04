@@ -8,6 +8,7 @@ typedef struct node{                //nickmane of "struct node" = node.
 node *Build123();
 node *getnode(int x);
 void print(node *s);
+node *addbegin(node *s, int x);
 
 node *HP;               // head pointer
 /*Build123 creates a list 1->2->3  and returns adress of first node*/
