@@ -32,16 +32,17 @@ void delend(node* s){
         printf("List is already empty.");
         return;
     }
-    if(HP->next!=NULL){
-        while(s->next->next!=NULL){
-            s = s->next;
-        }
-        free(s->next);
-        s->next = NULL;
-    }else{
-        HP = NULL;
-        free(s);
+   if(HP->next==NULL){      // one node
+       free(HP);
+       HP = NULL;
+       printf("Linked List is know EMPTY!.");
+   }else{               // many nodes
+    while(s->next->next!=NULL){
+        s = s->next;
     }
+    free(s->next);
+    s->next = NULL;
+   }
 }
 int main(){
     HP = Build123();
