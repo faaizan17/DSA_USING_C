@@ -27,6 +27,26 @@ void print(node* s){
         s = s->next;
     }
 }
+void delendpart2(){
+    node *s = HP;
+    node *temp = NULL;
+    if(HP==NULL){
+        printf("List is already empty.");
+        return;
+    }
+    if(HP->next==NULL){      // one node
+       free(HP);
+       HP = NULL;
+       printf("Linked List is know EMPTY!.");
+    }else{
+        while(s->next!=NULL){
+            temp = s;
+            s = s->next;
+        }
+        free(s);
+        temp->next = NULL;
+    }
+}
 void delend(node* s){
     if(HP==NULL){
         printf("List is already empty.");
@@ -48,7 +68,7 @@ int main(){
     HP = Build123();
     print(HP);
     printf("\n");
-    delend(HP);
+    delendpart2();
     print(HP);
     return 0;
 }
