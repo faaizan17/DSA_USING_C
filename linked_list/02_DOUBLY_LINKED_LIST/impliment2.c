@@ -57,11 +57,11 @@ void print2(){
 }
 
 void freelist(node* s){
-    node *temp;
+    node *temp1;
     while(s != NULL){
-        temp = s;
+        temp1 = s;
         s = s->next;
-        free(temp);
+        free(temp1);
     }
 }
 
