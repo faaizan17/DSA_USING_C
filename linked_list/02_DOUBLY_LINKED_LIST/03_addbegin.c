@@ -53,10 +53,23 @@ void freelist(node* s){
         free(temp);
     }
 }
+void addbegin(int x){
+    node *ptr = getnode(x);
+    if(HP){
+        ptr->next = HP;
+        HP->prev = ptr;
+        HP = ptr;
+    }else{
+        HP = ptr;
+        return;
+    }
+}
 int main(){
     HP = Build();
     print1();
     print2();
+    addbegin(0);
+    print1();
     freelist(HP);
     return 0;
 }
