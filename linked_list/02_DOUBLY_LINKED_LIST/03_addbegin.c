@@ -70,6 +70,7 @@ int main(){
     print2();
     addbegin(0);
     print1();
+    print2();
     freelist(HP);
     return 0;
 }
