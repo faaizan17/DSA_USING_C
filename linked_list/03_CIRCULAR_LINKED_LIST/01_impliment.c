@@ -21,28 +21,41 @@ node* build(){
     temp3->next = temp1;
     return temp1;
 }
+// void print(){
+//     node *s = NULL;
+//     printf("linked list data :\n");
+//     while(s!=HP){
+//         if(s==NULL){
+//             s = HP;
+//             printf("%d\t", s->data);
+//             s = s->next;
+//             continue;
+//         }
+//         printf("%d\t", s->data);
+//         s = s->next;
+//     }
+// }
 void print(){
-    node *s = NULL;
+    if(HP==NULL){
+        printf("list is empty");
+        return;
+    }
+    node *s = HP;
     printf("linked list data :\n");
-    while(s!=HP){
-        if(s==NULL){
-            s = HP;
-            printf("%d\t", s->data);
-            s = s->next;
-            continue;
-        }
+    do{
         printf("%d\t", s->data);
         s = s->next;
-    }
+    } while (s != HP);
 }
 void freelist(){
     node *temp = NULL;
     node *s = HP;
-    while(s->next!=HP){
+    do{
         temp = s;
-        s = s->next;
         free(temp);
-    }
+        s = s->next;
+    } while (s != HP);
+    HP = NULL;
 }
 int main(){
     HP = build();
